@@ -3,3 +3,32 @@ comando de instalacion de el paquete de autentificacion : composer require larav
 comando de instalacion autentificacion 2 = php artisan breeze:install
 comando de instalacion autentificacion 3 = npm install     npm run dev
 comando para ejecutarlas migraciones junto a seeders: php artisan migrate:refresh --seed
+
+comnado pra user solo un seeder: php artisan db:seed --class=NombreDelSeeder
+todos los seeders: php artisan db:seed
+migracion expecifica:php artisan migrate --path=database/migrations/nombre_del_archivo.php
+revertir ultima migracion:php artisan migrate:rollback
+
+comando para poder crear el proyecto : composer create-project laravel/laravel nombre-del-proyecto
+
+Acción	Comando
+Crear controlador	php artisan make:controller NombreDelControlador
+Crear middleware	php artisan make:middleware NombreDelMiddleware
+Crear modelo	php artisan make:model NombreDelModelo
+Crear modelo con migración, factory y seeder	php artisan make:model NombreDelModelo -mfs
+Crear seeder	php artisan make:seeder NombreDelSeeder
+Ejecutar seeder	php artisan db:seed --class=NombreDelSeeder
+Crear migración	php artisan make:migration nombre_de_la_migracion
+Ejecutar migraciones	php artisan migrate
+
+idea url
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuarioController;
+
+Route::get('/usuario/{id}/tipo/{tipo}', [UsuarioController::class, 'mostrarUsuario'])
+    ->name('usuario.mostrar');
+<a href="http://tu-dominio.com/usuario/123/tipo/admin">Ver Usuario 123 (Admin)</a>
+
+    <a href="{{ route('usuario.mostrar', [$usuario->id, $usuario->tipo]) }}">
+
+ <a href="{{ route('usuario.mostrar', ['id' => $usuario->id, 'tipo' => $usuario->tipo]) }}">
