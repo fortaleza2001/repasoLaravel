@@ -1,0 +1,3 @@
+codigo para escribir en consola : 
+$out = new \Symfony\Component\Console\Output\ConsoleOutput();
+$out->writeln("Hello from Terminal");
